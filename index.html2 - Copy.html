@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; }
+
+    header { background: #333; color: #fff; padding: 1rem; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #fff; text-decoration: none; }
+
+    #hero { background: #555; color: #fff; text-align: center; padding: 4rem 2rem; }
+    .btn { background: #ff6600; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+
+    section { padding: 2rem; }
+    #about { background: #f4f4f4; }
+    #projects { background: #fafafa; }
+    #experience { background: #f9f9f9; }
+    #skills { background: #f4f4f4; }
+
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .project-card { background: #eee; padding: 1rem; border-radius: 5px; text-align: center; }
+
+    .experience-list { max-width: 800px; margin: auto; }
+    .experience-item { margin-bottom: 1.5rem; }
+    .experience-item h3 { color: #333; }
+    .experience-item p { margin-top: 0.5rem; }
+
+    .skills-list { max-width: 600px; margin: auto; }
+    .skill { margin-bottom: 1rem; }
+    .skill-name { margin-bottom: 0.3rem; font-weight: bold; }
+    .skill-bar { background: #ddd; border-radius: 5px; overflow: hidden; }
+    .skill-level { background: #ff6600; height: 20px; }
+
+    form { display: flex; flex-direction: column; max-width: 400px; margin: auto; }
+    form input, form textarea { margin-bottom: 1rem; padding: 10px; }
+    form button { background: #333; color: #fff; padding: 10px; border: none; cursor: pointer; }
+
+    .success-message { text-align: center; color: green; margin-top: 1rem; display: none; }
+
+    footer { background: #333; color: #fff; text-align: center; padding: 1rem; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 10px 0; }
+      #hero { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <h1 class="logo">MyPortfolio</h1>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h2>Hello, I'm claire</h2>
+    <p>Web Developer | Designer | Creator</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a passionate developer with skills in HTML, CSS, and JavaScript. I love building clean, modern websites.</p>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-list">
+      <div class="experience-item">
+        <h3>Front-End Developer at TechCorp (2022–2024)</h3>
+        <p>Developed responsive websites and web apps using HTML, CSS, and JavaScript. Collaborated with designers to create user-friendly interfaces.</p>
+      </div>
+      <div class="experience-item">
+        <h3>Intern at WebStudio (2021)</h3>
+        <p>Assisted in building client websites, optimized performance, and learned best practices in modern web development.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">React</div>
+        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">project 1</div>
+      <div class="project-card">Project 2</div>
+      <div class="project-card">Project 3</div>
+    </div>
+
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div class="success-message" id="successMessage">Thank you! Your message has been submitted.</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 claire. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Submit -->
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent actual page reload
+      successMessage.style.display = 'block'; // Show confirmation
+      form.reset(); // Clear form fields
+    });
+  </script>
+</body>
+</html>
+ 
